@@ -526,6 +526,23 @@ body {
   }
 }
 
+// Improve background image behavior on mobile devices (iOS/Android)
+@media (max-width: 768px) {
+  #showcase {
+    background-attachment: scroll; // avoid jank/pixelation on mobile
+    background-position: center center;
+    background-size: cover;
+    min-height: 90vh; // maintain presence without oversizing
+  }
+}
+
+// iOS specific support – disable fixed for smoother rendering
+@supports (-webkit-overflow-scrolling: touch) {
+  #showcase {
+    background-attachment: scroll;
+  }
+}
+
 // Video Section
 #video-section {
   background-color: $background-color;
