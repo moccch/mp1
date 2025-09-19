@@ -5,9 +5,237 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MP1</title>
+        <link rel="stylesheet" href="css/main.scss">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="#header" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#showcase" class="nav-link">Showcase</a></li>
+                <li><a href="#video-section" class="nav-link">Video</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-content">
+            <h1>Agent Memory Co.</h1>
+            <p>Enterprise memory layer for agentic AI</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-intro">
+                <p>We build durable, secure memory for AI agents so they can learn across sessions, retain context, and act with continuity—safely.</p>
+            </div>
+            
+            <!-- Multi-column layout -->
+            <div class="about-columns">
+                <div class="column">
+                    <h3>Our Mission</h3>
+                    <p>Agents deserve long-term memory that is accurate, explainable, and privacy-first. We deliver a unified memory layer that connects data, context, and actions.</p>
+                    <p>Our platform integrates seamlessly with modern LLM stacks to power personalization, autonomy, and higher task success rates.</p>
+                </div>
+                
+                <div class="column">
+                    <h3><i class="fas fa-code"></i> What We Do</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-database"></i> Long‑term agent memory store</li>
+                        <li><i class="fas fa-project-diagram"></i> Knowledge graph & context linking</li>
+                        <li><i class="fas fa-lock"></i> Governance, PII controls, consent</li>
+                        <li><i class="fas fa-bolt"></i> Real‑time embeddings & retrieval</li>
+                        <li><i class="fas fa-code"></i> SDKs & APIs for quick integration</li>
+                        <li><i class="fas fa-chart-line"></i> Memory analytics & quality scoring</li>
+                    </ul>
+                    <p>Secure, explainable memory that scales with your agents.</p>
+                </div>
+                
+                <div class="column">
+                    <h3>Use Cases</h3>
+                    <p>Autonomous support agents, RAG copilots with memory, and long‑horizon workflows that need persistence and recall.</p>
+                    <p>Deployed in fintech, healthcare, and productivity with strict compliance needs.</p>
+                    <button class="modal-btn" data-modal="interests-modal">View Case Studies</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Carousel) -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Platform Highlights</h2>
+            <p>Key capabilities that power durable, contextual agents</p>
+            
+            <div class="carousel">
+                <div class="carousel-container">
+                    <div class="slide active">
+                        <div class="slide-content">
+                            <h3>Unified Memory Layer</h3>
+                            <p>Consolidate session data, events, and knowledge into a single memory fabric that agents can trust.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3>Contextual Retrieval</h3>
+                            <p>High‑recall, low‑latency retrieval with graph‑aware re‑ranking for precise context injection.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3>Privacy & Governance</h3>
+                            <p>PII controls, audit logs, and redaction policies designed for regulated environments.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow carousel-next" type="button" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Dots Indicator -->
+                <div class="carousel-dots">
+                    <button class="dot active" data-slide="0"></button>
+                    <button class="dot" data-slide="1"></button>
+                    <button class="dot" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section with Fixed Background -->
+    <section id="showcase">
+        <div class="showcase-content">
+            <h2>How Agent Memory Works</h2>
+            <p>From raw events to durable knowledge your agents can rely on</p>
+            <button class="modal-btn animate-btn" data-modal="process-modal">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video-section">
+        <div class="container">
+            <h2>Platform Demo</h2>
+            <p>See how our memory layer upgrades agent performance end‑to‑end</p>
+            <div class="video-container">
+                <video controls poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2><i class="fas fa-envelope"></i> Contact Agent Memory</h2>
+            <p>Talk to us about pilots, pricing, and integration timelines.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>sales@agentmemory.co</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 010-2048</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>San Francisco, CA</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon–Fri, 9AM–6PM PT</span>
+                </div>
+            </div>
+            
+            <div class="contact-social">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub Org</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+        <p>&copy; 2025 Agent Memory Co.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Windows -->
+    <div id="interests-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Case Studies</h3>
+            <div class="modal-body">
+                <div class="project-item fade-in">
+                    <h4>Fintech Support Agents</h4>
+                    <p>Reduced average handle time by 28% with compliant, auditable memory across customer conversations.</p>
+                </div>
+                <div class="project-item fade-in">
+                    <h4>Healthcare Copilots</h4>
+                    <p>Long‑term patient context with PHI safeguards, boosting plan adherence and care coordination.</p>
+                </div>
+                <div class="project-item fade-in">
+                    <h4>Productivity Workflows</h4>
+                    <p>Persistent task memory for multi‑day automations, improving completion rates and user satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="process-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Implementation Process</h3>
+            <div class="modal-body">
+                <div class="process-step fade-in">
+                    <h4>1. Discovery & Design</h4>
+                    <p>Map agent goals, data sources, retention policies, and evaluation metrics.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <h4>2. Pilot Integration</h4>
+                    <p>Wire SDKs, configure embeddings & graph, and validate retrieval quality.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <h4>3. Hardening & Compliance</h4>
+                    <p>Enable governance, audit logging, and redaction aligned to your policies.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <h4>4. Launch & Optimization</h4>
+                    <p>Rollout with dashboards and continuous memory quality scoring.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
     </body>
 </html>
