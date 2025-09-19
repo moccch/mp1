@@ -25,6 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
         link.classList.remove('large-text');
       });
     }
+
+    // Ensure page content is offset exactly by current navbar height
+    updateBodyOffset();
+  }
+
+  // Keep body top margin in sync with actual fixed navbar height
+  function updateBodyOffset() {
+    if (!navbar) return;
+    document.body.style.marginTop = navbar.offsetHeight + 'px';
   }
   
   // Function to update active nav link based on current section
@@ -91,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Recalculate positions when window size changes
     setTimeout(function() {
       updateActiveNavLink();
+      updateBodyOffset();
     }, 100);
   });
   
@@ -161,6 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Call the smooth scrolling setup
   addSmoothScrolling();
+  
+  // Initial body offset to account for fixed navbar (handles wraps on small screens)
+  updateBodyOffset();
   
   // Backup smooth scroll removed to prevent conflicts
   

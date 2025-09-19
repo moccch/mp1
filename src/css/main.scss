@@ -32,6 +32,22 @@ $white: #fff;
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden; // prevent horizontal scroll causing misalignment
+}
+
+// Fluid sizing tokens for universal navbar scaling
+:root {
+  --nav-pad: clamp(10px, 2.4vw, 24px);
+  --nav-gap: clamp(10px, 2.2vw, 30px);
+  --nav-font: clamp(14px, 1.7vw, 18px);
+  --nav-font-large: clamp(16px, 1.9vw, 20px);
+  --nav-link-pad-y: clamp(6px, 1.2vw, 12px);
+  --nav-link-pad-x: clamp(8px, 1.6vw, 18px);
+  --nav-height: clamp(56px, 8vh, 84px); // overall bar height responsive to viewport
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -63,32 +79,38 @@ body {
   width: 100%;
   background-color: $primary-color;
   z-index: 1000;
-  padding: 20px 0;
+  padding: var(--nav-pad) 0; // fluid vertical padding
+  min-height: var(--nav-height);
+  display: flex;
+  align-items: center;
   transition: padding 0.3s ease;
+  box-shadow: 0 0 0 100vmax $primary-color; // extend background to viewport edges
+  clip-path: inset(0 -100vmax); // avoid white margins on scaled viewports
 
   // Larger navbar when at top
-  &.large {
-    padding: 30px 0;
-  }
+  &.large { padding: calc(var(--nav-pad) * 1.2) 0; }
 
   ul {
     list-style: none;
     @include center-content;
-    gap: 30px;
+    gap: var(--nav-gap);
+    flex-wrap: wrap; // prevent overflow on narrow widths
+    width: 100%;
+    justify-content: center;
 
     li {
       a {
         color: $white;
         text-decoration: none;
-        font-size: 18px;
-        padding: 12px 18px;
+        font-size: var(--nav-font);
+        padding: var(--nav-link-pad-y) var(--nav-link-pad-x);
         border-radius: 4px;
         transition: all 0.3s ease;
 
         // Larger text when at top
         &.large-text {
-          font-size: 22px;
-          padding: 15px 22px;
+          font-size: var(--nav-font-large);
+          padding: calc(var(--nav-link-pad-y) * 1.1) calc(var(--nav-link-pad-x) * 1.1);
         }
 
         // Active/current section indicator
@@ -102,11 +124,18 @@ body {
       }
     }
   }
+
+  .container {
+    width: 100%;
+    padding: 0 clamp(8px, 2vw, 24px);
+    display: flex;
+    justify-content: center;
+  }
 }
 
 // Add top margin to body to account for fixed navbar
 body {
-  margin-top: 80px; // Increased for larger navbar
+  margin-top: var(--nav-height); // keep content clear of fixed navbar
 }
 
 // Header Section - Perfect vertical centering that adapts to container changes
@@ -1061,19 +1090,10 @@ body {
     padding: 0 10px;
   }
   
-  #navbar ul {
-    gap: 15px;
-  }
-  
-  #navbar li a {
-    font-size: 14px;
-    padding: 8px 12px;
-    
-    &.large-text {
-      font-size: 16px;
-      padding: 10px 15px;
-    }
-  }
+  #navbar { padding: 12px 0; }
+  #navbar ul { gap: 12px; }
+  #navbar li a { font-size: 14px; padding: 8px 10px; }
+  #navbar li a.large-text { font-size: 16px; padding: 10px 12px; }
   
   #header h1 {
     font-size: 1.8rem;
