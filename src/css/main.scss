@@ -491,17 +491,24 @@ body {
 // Showcase Section with Fixed Background Image
 #showcase {
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                    url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
-  background-attachment: fixed; // Fixed position background
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
   @include center-content;
   flex-direction: column;
   text-align: center;
-  position: relative;
-
+  
+  // fixed background via absolutely positioned layer (works on mobile)
+  .showcase-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                      url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    will-change: transform;
+  }
+  
   .showcase-content {
     position: relative;
     z-index: 2;
@@ -526,22 +533,8 @@ body {
   }
 }
 
-// Improve background image behavior on mobile devices (iOS/Android)
-@media (max-width: 768px) {
-  #showcase {
-    background-attachment: scroll; // avoid jank/pixelation on mobile
-    background-position: center center;
-    background-size: cover;
-    min-height: 90vh; // maintain presence without oversizing
-  }
-}
-
-// iOS specific support – disable fixed for smoother rendering
-@supports (-webkit-overflow-scrolling: touch) {
-  #showcase {
-    background-attachment: scroll;
-  }
-}
+// Ensure fixed layer stays behind other content
+section, header, footer { position: relative; }
 
 // Video Section
 #video-section {
