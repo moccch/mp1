@@ -328,8 +328,9 @@ body {
   p {
     font-size: 1.1rem;
     color: $text-color;
-    margin-bottom: 40px;
+    margin: 0 auto 40px; // center the line visually
     max-width: 800px;
+    text-align: center; // ensure centered regardless of parent
   }
 }
 
@@ -337,7 +338,7 @@ body {
 .carousel {
   position: relative;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto; // center horizontally
   background-color: $background-color;
   border-radius: 10px;
   overflow: hidden;
@@ -376,6 +377,7 @@ body {
 .slide-content {
   text-align: center;
   max-width: 600px;
+  margin: 0 auto; // center content block
 
   h3 {
     font-size: 2rem;
@@ -500,6 +502,9 @@ body {
   background-color: $background-color;
   padding: 100px 0;
   text-align: center;
+  min-height: 100vh; // make it a full stripe
+  @include center-content; // horizontal + vertical centering
+  flex-direction: column;
 
   h2 {
     font-size: 2.5rem;
@@ -730,9 +735,11 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    margin: 40px 0;
+    margin: 40px auto; // center the grid horizontally
     max-width: 800px;
     width: 100%;
+    justify-content: center; // center columns when extra space exists
+    justify-items: center; // center items inside their grid cells
     
     .contact-item {
       display: flex;
